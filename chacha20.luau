@@ -14,7 +14,7 @@ Repository: https://github.com/MrRoblick/chacha20-luau
 
 const ChaCha20 = {}
 
-@[native, checked] const function QuarterRound(State: buffer, A: number, B: number, C: number, D: number)
+@[native, checked] const function QuarterRound(State: buffer, A: number, B: number, C: number, D: number): ()
 	local sa = buffer.readu32(State, A)
 	local sb = buffer.readu32(State, B)
 	local sc = buffer.readu32(State, C)
@@ -38,7 +38,7 @@ const ChaCha20 = {}
 	buffer.writeu32(State, D, sd)
 end
 
-@[native, checked] const function ChaCha20Block(WorkingState: buffer, InitialState: buffer, OutBuffer: buffer)
+@[native, checked] const function ChaCha20Block(WorkingState: buffer, InitialState: buffer, OutBuffer: buffer): ()
 	buffer.copy(WorkingState, 0, InitialState, 0, 64)
 
 	for _ = 1, 10 do
