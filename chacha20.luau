@@ -57,8 +57,8 @@ end
 		const InitWord = buffer.readu32(InitialState, Offset)
 		const WorkWord = buffer.readu32(WorkingState, Offset)
 
-		local mixedWord = bit32.band(InitWord + WorkWord, 0xFFFFFFFF)
-		buffer.writeu32(OutBuffer, Offset, mixedWord)
+		const MixedWord = bit32.band(InitWord + WorkWord, 0xFFFFFFFF)
+		buffer.writeu32(OutBuffer, Offset, MixedWord)
 	end
 end
 
