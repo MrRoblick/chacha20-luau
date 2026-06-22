@@ -53,12 +53,12 @@ end
 		QuarterRound(WorkingState, 12, 16, 36, 56)
 	end
 
-	for offset = 0, 60, 4 do
-		local initWord = buffer.readu32(InitialState, offset)
-		local workWord = buffer.readu32(WorkingState, offset)
+	for Offset = 0, 60, 4 do
+		const InitWord = buffer.readu32(InitialState, Offset)
+		const WorkWord = buffer.readu32(WorkingState, Offset)
 
-		local mixedWord = bit32.band(initWord + workWord, 0xFFFFFFFF)
-		buffer.writeu32(OutBuffer, offset, mixedWord)
+		local mixedWord = bit32.band(InitWord + WorkWord, 0xFFFFFFFF)
+		buffer.writeu32(OutBuffer, Offset, mixedWord)
 	end
 end
 
